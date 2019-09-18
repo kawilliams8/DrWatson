@@ -7,9 +7,7 @@ exports[`App component should match the snapshot with a ChatBox if the user has 
   <Connect(Header)
     signOut={[Function]}
   />
-  <Connect(ChatBox)
-    messages={Array []}
-  />
+  <Connect(ChatBox) />
 </div>
 `;
 

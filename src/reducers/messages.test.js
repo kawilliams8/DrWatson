@@ -8,9 +8,9 @@ describe('messages reducer', () => {
     expect(result).toEqual(expected);
   });
 
-  it('should return an error from state with a ADD_MESSAGE action', () => {
-    const expected = ['This is the message'];
-    const result = messages(undefined, { type: "ADD_MESSAGE", message: "This is the message" });
+  it('should return info from state with a ADD_MESSAGE action', () => {
+    const expected = [{message: 'This is the message', isUser: false}];
+    const result = messages(undefined, { type: "ADD_MESSAGE", message: "This is the message", isUser: false });
     expect(result).toEqual(expected);
   });
 

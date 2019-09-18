@@ -15,3 +15,13 @@ export const hasErrored = errorMsg => ({
 export const clearError = (error) => ({
   type: 'CLEAR_ERROR'
 });
+
+export const addMessage = (message, isUser) => ({
+  type: 'ADD_MESSAGE',
+  message,
+  isUser
+});
+
+export const clearMessages = () => ({
+  type: 'CLEAR_MESSAGES'
+});

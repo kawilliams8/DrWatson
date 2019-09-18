@@ -4,7 +4,7 @@ import { bindActionCreators } from 'redux';
 import Header from '../Header/Header';
 import WelcomeModal from '../WelcomeModal/WelcomeModal';
 import ChatBox from '../ChatBox/ChatBox';
-import { removeUser, hasErrored, clearError } from '../../actions';
+import { removeUser, hasErrored, clearError} from '../../actions';
 import { endConversation } from '../../apiCalls';
 import './App.css';
 
@@ -16,20 +16,20 @@ export class App extends Component {
     }
   }
 
-  addMessage = (message, isUser) => {
-    const { messages } = this.state;
-    this.setState({ messages: [...messages, { message, isUser }]});
-  }
+  // addMessage = (message, isUser) => {
+  //   const { messages } = this.state;
+  //   this.setState({ messages: [...messages, { message, isUser }]});
+  // }
 
-  clearMessages = () => {
-    this.setState({ messages: [] });
-  }
+  // clearMessages = () => {
+  //   this.setState({ messages: [] });
+  // }
 
   signOut = async () => {
     try {
       await endConversation()
       this.props.removeUser();
-      this.clearMessages();
+      // this.clearMessages();
       this.props.clearError();
     } catch({ message }) {
       this.props.hasErrored(message);
@@ -53,6 +53,6 @@ export const mapStateToProps = ({ user }) => ({
   user,
 });
 
-export const mapDispatchToProps = dispatch =>  bindActionCreators({ removeUser, hasErrored, clearError }, dispatch);
+export const mapDispatchToProps = dispatch =>  bindActionCreators({ removeUser, hasErrored, clearError}, dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

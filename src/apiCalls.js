@@ -14,12 +14,27 @@ export const startConversation = async feeling => {
   }
 
   const data = await response.json();
-  console.log(data)
+  // console.log('startconvoAPI', data)
   return data;
 }
 
 export const postMessage = async newMessage => {
+  const url = 'https://drwatson-api.herokuapp.com/api/message'
+  const options = {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({ newMessage })
+  };
 
+  const response = await fetch(url, options);
+  if (!response.ok) {
+    throw Error('Dr Watson is currently down.  Please try to post again later.')
+  }
+  const data = await response.json();
+  // console.log('sendmessageAPI', data)
+  return data;
 }
 
 export const endConversation = async () => {
@@ -29,4 +44,6 @@ export const endConversation = async () => {
   if (!response.ok) {
     throw Error('There was a problem ending the session.  Please close the application.')
   }
+  // console.log('endconvoAPI', response)
+  return response; //This GET doesn't send back body content, nothing to .json()
 }

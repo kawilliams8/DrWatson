@@ -54,6 +54,45 @@ describe('WelcomeModal component', () => {
     expect(wrapper.state('firstName')).toEqual('Travis');
   });
 
+  it('should update the form state error when calling handleSubmit without a firstname', () => {
+    const mockEvent = {
+      preventDefault: jest.fn(),
+      target: {
+        name: 'firstName',
+        value: ""
+      }
+    }
+    wrapper.instance().handleSubmit(mockEvent);
+
+    expect(wrapper.state('error')).toEqual("Please make sure you have filled everything out.");
+  });
+
+  it('should update the form state error when calling handleSubmit without a lastname', () => {
+    const mockEvent = {
+      preventDefault: jest.fn(),
+      target: {
+        name: 'lastName',
+        value: ""
+      }
+    }
+    wrapper.instance().handleSubmit(mockEvent);
+
+    expect(wrapper.state('error')).toEqual("Please make sure you have filled everything out.");
+  });
+
+  it('should update the form state error when calling handleSubmit without a feeling', () => {
+    const mockEvent = {
+      preventDefault: jest.fn(),
+      target: {
+        name: 'feeling',
+        value: ""
+      }
+    }
+    wrapper.instance().handleSubmit(mockEvent);
+
+    expect(wrapper.state('error')).toEqual("Please make sure you have filled everything out.");
+  });
+
   it('should call createUser with correct arguments and connectToChatBot', () => {
     global.Date.now = jest.fn().mockImplementation(() => 12345);
     wrapper.instance().connectToChatBot = jest.fn();

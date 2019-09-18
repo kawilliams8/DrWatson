@@ -106,7 +106,8 @@ describe('ChatBox component', () => {
     />);
 
     postMessage.mockImplementation(() => {
-      return Promise.reject(Error('fetch failed.'));
+      return Promise.reject(Error('fetch failed.'))
+      ;
     });
 
     await wrapper.instance().messageChatBot();

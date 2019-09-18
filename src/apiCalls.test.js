@@ -53,9 +53,9 @@ describe('startConversation', () => {
 });
 
 describe('postMessage', () => {
-  const mockMessage = 'I\'m stressed!';
+  const mockMessage = 'I\'m on iteration 5!';
   const mockResponse = {
-    message: "Hi there, my name is Dr. Watson.  I understand tha…tressed.  What has been most stressful this week?"
+    message: "Hi there, my name is Dr. Watson.  What is iteration 5?"
   };
 
   beforeEach(() => {

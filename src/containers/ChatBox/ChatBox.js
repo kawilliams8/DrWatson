@@ -43,9 +43,7 @@ export class ChatBox extends Component {
   render() {
     const { message } = this.state;
     const { messages, errorMsg } = this.props;
-    console.log('chatbox props', this.props)
     const survey = messages.map((message, i) => {
-      console.log('in map', message)
       return <Message
         key={`message${i}`}
         message={message.message}

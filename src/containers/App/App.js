@@ -8,37 +8,28 @@ import { removeUser, hasErrored, clearError} from '../../actions';
 import { endConversation } from '../../apiCalls';
 import './App.css';
 
-export class App extends Component {
-  constructor() {
-    super();
-    this.state = {
-      messages: []
-    }
-  }
+export const App = (props) => {
 
-  signOut = async () => {
+  const signOut = async () => {
     try {
       await endConversation()
       this.props.removeUser();
-      // this.clearMessages();
       this.props.clearError();
     } catch({ message }) {
       this.props.hasErrored(message);
     }
   }
 
-  render() {
-    const { user } = this.props;
-    const { messages } = this.state;
-    return (
-      <div className="App">
-        <Header signOut={this.signOut} />
-        {!user && <WelcomeModal addMessage={this.addMessage} />}
-        {user && <ChatBox addMessage={this.addMessage} messages={messages} />}
+  const { user } = props;
+
+  return (
+    <div className="App">
+        <Header signOut={signOut} />
+        {!user && <WelcomeModal />}
+        {user && <ChatBox />}
       </div>
     );
   }
-}
 
 export const mapStateToProps = ({ user }) => ({
   user,

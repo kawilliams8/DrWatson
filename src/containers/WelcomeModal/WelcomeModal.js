@@ -23,6 +23,9 @@ export class WelcomeModal extends Component {
   handleSubmit = e => {
     const { firstName, lastName, feeling } = this.state;
     e.preventDefault();
+    if (!firstName || !lastName || !feeling) {
+      this.setState({error: 'Please make sure you have filled everything out.'})
+    } else {
     this.props.createUser({
       id: Date.now(),
       firstName,
@@ -30,7 +33,8 @@ export class WelcomeModal extends Component {
       feeling,
     });
     this.connectToChatBot();
-  }
+    }
+  } 
 
   connectToChatBot = async () => {
     try {

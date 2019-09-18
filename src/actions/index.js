@@ -10,4 +10,8 @@ export const removeUser = () => ({
 export const hasErrored = errorMsg => ({
   type: 'HAS_ERRORED',
   errorMsg
-})
+});
+
+export const clearError = (error) => ({
+  type: 'CLEAR_ERROR'
+});

@@ -11,9 +11,9 @@ describe('Action Creators', () => {
 
   let mockUser, mockError, mockMessage;
   beforeEach(() => {
-    const mockUser = {id: 1, name: "Katie"}
-    const mockError = "This is a mock error"
-    const mockMessage = "This is a mock message"
+    mockUser = {id: 1, name: "Katie"}
+    mockError = "This is a mock error"
+    mockMessage = "This is a mock message"
   });
 
   it('should return an action object - createUser', () => {

@@ -47,7 +47,7 @@ export class ChatBox extends Component {
     const survey = messages.map((message, i) => {
       return <Message
         key={`message${i}`}
-        message={message.message}
+        message={message}
         isUser={message.isUser}
       />
     })
@@ -71,9 +71,9 @@ export class ChatBox extends Component {
   }
 }
 
-export const mapStateToProps = ({ errorMsg, message }) => ({
+export const mapStateToProps = ({ errorMsg, messages }) => ({
   errorMsg,
-  message
+  messages
 })
 
 export const mapDispatchToProps = dispatch => bindActionCreators({ hasErrored, addMessage, clearMessages }, dispatch);

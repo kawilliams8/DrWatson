@@ -16,20 +16,20 @@ export class App extends Component {
     }
   }
 
-  addMessage = (message, isUser) => {
-    const { messages } = this.state;
-    this.setState({ messages: [...messages, { message, isUser }]});
-  }
+  // addMessage = (message, isUser) => {
+  //   const { messages } = this.state;
+  //   this.setState({ messages: [...messages, { message, isUser }]});
+  // }
 
-  clearMessages = () => {
-    this.setState({ messages: [] });
-  }
+  // clearMessages = () => {
+  //   this.setState({ messages: [] });
+  // }
 
   signOut = async () => {
     try {
       await endConversation()
       this.props.removeUser();
-      this.clearMessages();
+      // this.clearMessages();
       this.props.clearError();
     } catch({ message }) {
       this.props.hasErrored(message);

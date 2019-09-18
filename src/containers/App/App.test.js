@@ -7,6 +7,7 @@ import { endConversation } from '../../apiCalls';
 jest.mock('../../apiCalls');
 
 describe('App component', () => {
+  const mockAddMessage = jest.fn();
   const mockRemoveUser = jest.fn();
   const mockHasErrored = jest.fn();
   let wrapper;
@@ -21,6 +22,7 @@ describe('App component', () => {
 
     wrapper = shallow(<App
         user={mockUser}
+        addMessage={mockAddMessage}
         removeUser={mockRemoveUser}
         hasErrored={mockHasErrored}
     />);
@@ -33,6 +35,7 @@ describe('App component', () => {
   it("should match the snapshot with a WelcomeModal if the user hasn't signed in yet", () => {
     const wrapper = shallow(<App
       user={null}
+      addMessage={mockAddMessage}
       removeUser={mockRemoveUser}
       hasErrored={mockHasErrored}
     />);

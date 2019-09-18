@@ -1,11 +1,19 @@
-import { createUser, removeUser, hasErrored, clearError} from '../actions';
+import { 
+  createUser, 
+  removeUser, 
+  hasErrored, 
+  clearError, 
+  addMessage,
+  clearMessages
+} from '../actions';
 
 describe('Action Creators', () => {
 
-  let mockUser, mockError;
+  let mockUser, mockError, mockMessage;
   beforeEach(() => {
     const mockUser = {id: 1, name: "Katie"}
     const mockError = "This is a mock error"
+    const mockMessage = "This is a mock message"
   });
 
   it('should return an action object - createUser', () => {
@@ -29,6 +37,18 @@ describe('Action Creators', () => {
   it('should return an action object - clearError', () => {
     const expected = { type: 'CLEAR_ERROR'};
     const result = clearError(mockError);
+    expect(result).toEqual(expected);
+  });
+
+  it('should return an action object = addMessage', () => {
+    const expected = { type: 'ADD_MESSAGE', message: mockMessage};
+    const result = addMessage(mockMessage);
+    expect(result).toEqual(expected);
+  });
+
+  it('should return an action object = clearMessages', () => {
+    const expected = { type: 'CLEAR_MESSAGES'};
+    const result = clearMessages();
     expect(result).toEqual(expected);
   });
 })

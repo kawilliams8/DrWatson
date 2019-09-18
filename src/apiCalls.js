@@ -42,5 +42,5 @@ export const endConversation = async () => {
   if (!response.ok) {
     throw Error('There was a problem ending the session.  Please close the application.')
   }
-  return response; //This GET doesn't send back body content, nothing to .json()
+  return response;
 }
